@@ -1,0 +1,79 @@
+<label>Server name</label>
+<!-- Event binding -->
+<!-- <input
+  type="text"
+  name="name"
+  class="form-control"
+  (input)="onUpdateServerName($event)"
+/> -->
+
+<!-- Two-way event binding -->
+<input type="text" name="name" class="form-control" [(ngModel)]="serverName" />
+<button
+  class="btn btn-primary"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+>
+  Add server
+</button>
+<p>{{ serverName }}</p>
+
+<!-- String interpolation -->
+<!-- <p>{{ "Server" }} with {{ serverId }} is {{ getServerStatus() }}</p> -->
+
+<!-- ng if/else -->
+<p
+  *ngIf="serverCreated; else noServer"
+  [ngStyle]="{ backgroundColor: getColor() }"
+  [ngClass]="{ online: serverStatus === 'online' }"
+>
+  {{ serverCreationStatus }}
+</p>
+<ng-template #noServer>
+  <!-- <p>No server was created</p> -->
+  <p>{{ serverCreationStatus }}</p>
+</ng-template>
+
+<!-- Property binding -->
+<!-- <p [innerText]="allowNewServer"></p> -->
+
+<!-- Solution 1 (databinding)-->
+<!-- <label>Username</label>
+<input type="text" class="form-control" [(ngModel)]="username" />
+<button
+  class="btn btn-primary"
+  [disabled]="username === ''"
+  (click)="username = ''"
+>
+  Reset username
+</button>
+<p>{{ username }}</p> -->
+
+<!-- Solution 2 (databinding)-->
+<!-- <label>Username</label>
+<input type="text" class="form-control" [(ngModel)]="username" />
+<button
+  class="btn btn-primary"
+  [disabled]="allowUpdateUsername()"
+  (click)="onResetUsername()"
+>
+  Reset username
+</button>
+<p>{{ username }}</p>
+ -->
+
+<!-- Solution 1 (directives) -->
+<button class="btn btn-primary" (click)="display = !display">
+  Display details
+</button>
+
+<p *ngIf="display">Hello, Marismar!</p>
+<p
+  *ngFor="let item of items"
+  [ngStyle]="{
+    backgroundColor: item >= 3 ? 'blue' : 'transparent'
+  }"
+  [ngClass]="{ 'white-text': item >= 3 }"
+>
+  {{ item }}
+</p>
