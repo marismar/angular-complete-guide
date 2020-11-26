@@ -1,0 +1,26 @@
+.recipes__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  margin: 4rem 4rem;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--color-grey-light-3);
+}
+
+.recipes__content {
+  width: 50%;
+}
+
+.recipes__content:not(:last-child) {
+  margin-right: 4rem;
+}
+
+.recipes-list {
+  margin-right: 2rem;
+}
+
+.recipes-detail {
+  align-self: flex-start;
+}

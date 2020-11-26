@@ -1,0 +1,72 @@
+.shopping-edit__container {
+  width: 100%;
+  margin-top: -8.5rem;
+}
+
+.shopping-edit__options {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shopping-list__btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.shopping-list__btn:hover {
+  background-color: var(--color-primary);
+}
+
+.shopping-list__btn:hover .icon {
+  fill: white;
+}
+
+.shopping-list__btn:focus {
+  outline: none;
+}
+
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: rgb(89, 29, 124);
+}
+
+.shopping-edit__form {
+  display: flex;
+  justify-content: space-between;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+
+fieldset {
+  border: none;
+}
+
+.shopping-edit__input {
+  padding: 1.5rem 2rem;
+  font-size: 1.5rem;
+  font-family: inherit;
+  border: 2px solid var(--color-grey-light-3);
+  border-radius: 1rem;
+}
+
+.shopping-edit__input--name {
+  width: 30rem;
+}
+
+.shopping-edit__input--amount {
+  max-width: 15rem;
+}
+
+.shopping-edit__input:focus {
+  outline: none;
+  border: 2px solid var(--color-primary);
+}

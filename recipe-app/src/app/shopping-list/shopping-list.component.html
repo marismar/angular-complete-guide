@@ -1,0 +1,17 @@
+<div class="shopping__container">
+  <div class="heading-box">
+    <h1>Shopping list</h1>
+  </div>
+  <div class="shopping__content">
+    <div class="shopping-list shopping-col">
+      <ul class="shopping-list__group">
+        <a href="#" class="list__item" *ngFor="let ingredient of ingredients">
+          <p>{{ ingredient.name }}</p>
+          <p>{{ ingredient.amount }}</p>
+        </a>
+      </ul>
+    </div>
+
+    <app-shopping-edit class="shopping__form shopping__col"></app-shopping-edit>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.container {
+  max-width: 110rem;
+  min-height: 90%;
+  margin: 1rem auto;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.5);
+}
+
+.container .content {
+  display: flex;
+  flex-direction: column;
+}
