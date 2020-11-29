@@ -1,0 +1,4 @@
+<h1>{{ title }}</h1>
+<app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
+<app-odd *ngFor="let num of oddNums" [num]="num"></app-odd>
+<app-even *ngFor="let num of evenNums" [num]="num"></app-even>
