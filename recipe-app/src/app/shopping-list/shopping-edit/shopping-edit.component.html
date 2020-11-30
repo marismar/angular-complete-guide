@@ -1,6 +1,10 @@
 <div class="shopping-edit__container">
   <div class="shopping-edit__options">
-    <button class="shopping-list__btn btn-add" type="submit">
+    <button
+      class="shopping-list__btn btn-add"
+      type="submit"
+      (click)="onAddItem()"
+    >
       <svg class="icon icon-plus">
         <use xlink:href="../../assets/sprite.svg#icon-plus"></use>
       </svg>
@@ -23,6 +27,7 @@
         type="text"
         class="shopping-edit__input shopping-edit__input--name"
         id="name"
+        #nameInput
       />
     </fieldset>
     <fieldset>
@@ -31,6 +36,7 @@
         type="number"
         class="shopping-edit__input shopping-edit__input--amount"
         id="amount"
+        #amountInput
       />
     </fieldset>
   </form>

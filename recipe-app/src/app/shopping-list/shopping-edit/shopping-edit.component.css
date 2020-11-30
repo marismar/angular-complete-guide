@@ -14,6 +14,7 @@
   background-color: transparent;
   cursor: pointer;
   padding: 1rem;
+  transition: all 0.3s;
 }
 
 .shopping-list__btn:hover {
@@ -32,6 +33,7 @@
   width: 2.5rem;
   height: 2.5rem;
   fill: rgb(89, 29, 124);
+  transition: all 0.3s;
 }
 
 .shopping-edit__form {

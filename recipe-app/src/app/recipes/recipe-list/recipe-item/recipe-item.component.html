@@ -1,1 +1,9 @@
-<p>recipe-item works!</p>
+<a href="#" class="recipe-item__link" (click)="onSelectedItem()">
+  <div class="recipe-item__info">
+    <h3 class="recipe__name">{{ recipe.name }}</h3>
+    <p class="recipe__description">{{ recipe.description }}</p>
+  </div>
+  <div class="recipe-item__photo">
+    <img [src]="recipe.imagePath" alt="Recipe photo" class="recipe__image" />
+  </div>
+</a>

@@ -1,6 +1,6 @@
 <div class="recipes-detail__container">
   <div class="heading-box">
-    <h2 class="section__title">Details</h2>
+    <h2 class="section__title">{{ recipe.name }}</h2>
     <div class="recipe-detail__options">
       <button class="btn">
         <!-- <svg class="icon icon-shopping-cart">
@@ -22,7 +22,21 @@
       </button>
     </div>
   </div>
-
-  <p>Description</p>
+  <img
+    [src]="recipe.imagePath"
+    alt="{{ recipe.name }}"
+    style="max-width: 100%; margin-bottom: 2rem; border-radius: 3rem"
+  />
+  <p
+    style="
+      text-align: justify;
+      color: var(--color-grey-dark-2);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+      font-size: 1.6rem;
+    "
+  >
+    {{ recipe.description }}
+  </p>
   <p>Ingredients</p>
 </div>

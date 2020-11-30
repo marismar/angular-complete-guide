@@ -1,7 +1,7 @@
 <div class="container">
-  <app-header></app-header>
+  <app-header (selectPage)="onSelectedPage($event)"></app-header>
   <div class="content">
-    <app-recipes></app-recipes>
-    <app-shopping-list></app-shopping-list>
+    <app-recipes *ngIf="page === 'recipes'"></app-recipes>
+    <app-shopping-list *ngIf="page !== 'recipes'"></app-shopping-list>
   </div>
 </div>

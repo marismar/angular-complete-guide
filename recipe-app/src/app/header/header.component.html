@@ -4,7 +4,20 @@
     <span class="heading-primary">RecipesApp</span>
   </div>
   <nav class="header__navbar">
-    <a href="#" class="navbar__link">Shopping</a>
-    <a href="#" class="navbar__link navbar__link--active">Recipes</a>
+    <a
+      href="#"
+      class="navbar__link"
+      [ngClass]="{ 'navbar__link--active': page !== 'recipes' }"
+      (click)="onShoppingPage()"
+      >Shopping</a
+    >
+    <a
+      href="#"
+      class="navbar__link"
+      [ngClass]="{ 'navbar__link--active': page === 'recipes' }"
+      (click)="onRecipesPage()"
+    >
+      Recipes
+    </a>
   </nav>
 </div>
