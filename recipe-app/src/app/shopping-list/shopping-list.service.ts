@@ -6,7 +6,7 @@ import { Ingredient } from '../shared/ingredient.model';
   providedIn: 'root',
 })
 export class ShoppingListService {
-  ingredientAdded = new EventEmitter<Ingredient>();
+  ingredientAdded = new EventEmitter<Ingredient[]>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
@@ -16,10 +16,13 @@ export class ShoppingListService {
   constructor() {}
 
   getIngredients(): Ingredient[] {
+    // It's possible to use only this, instead event binding
+    // return this.ingredients;
     return this.ingredients.slice();
   }
 
   addIngredients(ingredient: Ingredient): void {
     this.ingredients.push(ingredient);
+    this.ingredientAdded.emit(this.ingredients.slice());
   }
 }

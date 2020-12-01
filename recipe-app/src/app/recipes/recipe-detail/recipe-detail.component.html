@@ -2,7 +2,7 @@
   <div class="heading-box">
     <h2 class="section__title">{{ recipe.name }}</h2>
     <div class="recipe-detail__options">
-      <button class="btn">
+      <button class="btn" type="button" (click)="onAddToShopping()">
         <!-- <svg class="icon icon-shopping-cart">
           <use xlink:href="../../assets/sprite.svg#icon-shopping-cart"></use>
         </svg> -->
@@ -38,5 +38,14 @@
   >
     {{ recipe.description }}
   </p>
-  <p>Ingredients</p>
+  <h4 style="margin-bottom: 2rem">Ingredients</h4>
+  <ul class="list-group__ingredients" style="list-style: none">
+    <li
+      style="margin-bottom: 1rem"
+      class="list-item__ingredients"
+      *ngFor="let ingredient of recipe.ingredients"
+    >
+      {{ ingredient.amount }} · {{ ingredient.name }}
+    </li>
+  </ul>
 </div>

@@ -1,6 +1,6 @@
 .recipes__container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
 
   margin: 4rem 4rem;
