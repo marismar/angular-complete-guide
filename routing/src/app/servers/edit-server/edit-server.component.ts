@@ -49,7 +49,10 @@ export class EditServerComponent implements OnInit, CanDeactivateGuard {
       status: this.serverStatus,
     });
     this.changesSaved = true;
-    this.router.navigate(['../'], { relativeTo: this.route });
+    this.router.navigate(['../'], {
+      relativeTo: this.route,
+      queryParamsHandling: 'preserve',
+    });
   }
 
   canDeactivate():
