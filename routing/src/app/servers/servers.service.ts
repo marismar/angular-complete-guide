@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ServersService {
-  private servers = [
+  private servers: { id: number; name: string; status: string }[] = [
     {
       id: 1,
       name: 'Productionserver',
