@@ -45,3 +45,12 @@
   shape-outside: polygon(0 0, 0 100%, 100% 100%, 100% 0);
   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
 }
+
+.recipe-item__seleted {
+  background-color: var(--color-primary-dark);
+  color: white;
+}
+
+.recipe-item__seleted .recipe__description {
+  color: var(--color-grey-light-3);
+}

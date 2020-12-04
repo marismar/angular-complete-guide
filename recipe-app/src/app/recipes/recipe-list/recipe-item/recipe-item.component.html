@@ -9,7 +9,12 @@
 </a> -->
 
 <!-- Using routing -->
-<a class="recipe-item__link" (click)="onSelectedItem()" style="cursor: pointer">
+<a
+  class="recipe-item__link"
+  style="cursor: pointer"
+  [routerLink]="[index]"
+  routerLinkActive="recipe-item__seleted"
+>
   <div class="recipe-item__info">
     <h3 class="recipe__name">{{ recipe.name }}</h3>
     <p class="recipe__description">{{ recipe.description }}</p>

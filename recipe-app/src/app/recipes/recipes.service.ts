@@ -51,6 +51,10 @@ export class RecipesService {
     return this.recipes.slice(); // returns a copy of recipes
   }
 
+  getRecipe(index: number): Recipe {
+    return this.recipes[index];
+  }
+
   addToShopping(recipe: Recipe): void {
     for (const ingredient of recipe.ingredients) {
       this.shoppingListService.addIngredients(ingredient);
