@@ -6,12 +6,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  @Output() selectPage = new EventEmitter<string>();
+  /* @Output() selectPage = new EventEmitter<string>();
   page = 'recipes';
-
-  constructor() {}
-
-  ngOnInit(): void {}
 
   onRecipesPage(): void {
     this.page = 'recipes';
@@ -21,5 +17,9 @@ export class HeaderComponent implements OnInit {
   onShoppingPage(): void {
     this.page = 'shopping';
     this.selectPage.emit('shopping');
-  }
+  } */
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }

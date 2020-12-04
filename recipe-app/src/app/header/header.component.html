@@ -4,7 +4,8 @@
     <span class="heading-primary">RecipesApp</span>
   </div>
   <nav class="header__navbar">
-    <a
+    <!-- Using event listener to change the selected page -->
+    <!-- <a
       href="#"
       class="navbar__link"
       [ngClass]="{ 'navbar__link--active': page !== 'recipes' }"
@@ -16,6 +17,23 @@
       class="navbar__link"
       [ngClass]="{ 'navbar__link--active': page === 'recipes' }"
       (click)="onRecipesPage()"
+    >
+      Recipes
+    </a> -->
+
+    <!-- Using routing to changes pages -->
+    <a
+      href="#"
+      class="navbar__link"
+      routerLink="/recipes"
+      routerLinkActive="navbar__link--active"
+      >Shopping</a
+    >
+    <a
+      href="#"
+      routerLink="/shopping-list"
+      routerLinkActive="navbar__link--active"
+      class="navbar__link"
     >
       Recipes
     </a>
