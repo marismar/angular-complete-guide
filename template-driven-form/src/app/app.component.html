@@ -1,7 +1,7 @@
-<div class="container">
+<!-- Lecture -->
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <!-- <form (ngSubmit)="onSubmit(form)" #form="ngForm"> -->
       <form (ngSubmit)="onSubmit()" #form="ngForm">
         <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
           <div class="form-group">
@@ -92,5 +92,93 @@
     <p>Secret question: {{ user.secret }}</p>
     <p>Answer: {{ user.answer }}</p>
     <p>Gender: {{ user.gender }}</p>
+  </div>
+</div>
+ -->
+
+<!-- Exercise -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h1
+        style="
+          text-align: center;
+          font-size: 2rem;
+          font-weight: bold;
+          margin-bottom: 2rem;
+        "
+      >
+        Assignment 06 ─ Template Driven Form
+      </h1>
+      <form (ngSubmit)="onSubmit()" #form="ngForm" style="margin-bottom: 2rem">
+        <div class="form-group">
+          <label for="email"> Email </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            ngModel
+            email
+            #email="ngModel"
+            required
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          role="alert"
+          *ngIf="!email.valid && email.touched"
+        >
+          Please enter a valid email!
+        </div>
+        <div class="form-group">
+          <label for="subscription">Subscription</label>
+          <select
+            name="subscription"
+            id="subscription"
+            class="form-control"
+            [ngModel]="defaultOption"
+          >
+            <option value="basic">Basic</option>
+            <option value="advanced">Advanced</option>
+            <option value="pro">Pro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form-control"
+            ngModel
+            #password="ngModel"
+            required
+          />
+        </div>
+        <div
+          class="alert alert-warning"
+          role="alert"
+          *ngIf="!password.valid && password.touched"
+        >
+          Please enter a valid password!
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="!form.valid && email.touched && password.touched"
+      >
+        Form data is invalid!
+      </div>
+      <div
+        class="alert alert-success"
+        role="alert"
+        *ngIf="form.submitted && form.valid"
+      >
+        Thank you, all data was submit!
+      </div>
+    </div>
   </div>
 </div>
