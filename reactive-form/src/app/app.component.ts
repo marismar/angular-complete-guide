@@ -7,6 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -28,15 +29,32 @@ export class AppComponent implements OnInit {
           Validators.required,
           this.forbiddenNames.bind(this),
         ]),
-        email: new FormControl(null, [Validators.required, Validators.email]),
+        email: new FormControl(
+          null,
+          [Validators.required, Validators.email],
+          this.forbiddenEmails.bind(this)
+        ),
       }),
       gender: new FormControl('female'),
       hobbies: new FormArray([]),
+    });
+
+    this.signupForm.valueChanges.subscribe((value) => console.log(value));
+    this.signupForm.statusChanges.subscribe((status) => console.log(status));
+
+    this.signupForm.setValue({
+      userData: {
+        username: 'Marismar',
+        email: 'cmarismar@gmail.com',
+      },
+      gender: 'female',
+      hobbies: [],
     });
   }
 
   onSubmit(): void {
     console.log(this.signupForm);
+    // this.signupForm.reset();
   }
 
   onAddHobby(): void {
@@ -53,5 +71,19 @@ export class AppComponent implements OnInit {
       return { nameIsForbidden: true };
     }
     return null;
+  }
+
+  forbiddenEmails(control: FormControl): Promise<any> | Observable<any> {
+    const promise = new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'test@test.com') {
+          resolve({ emailIsForbidden: true });
+        } else {
+          resolve(null);
+        }
+      }, 1500);
+    });
+
+    return promise;
   }
 }
