@@ -5,7 +5,12 @@
   <div class="shopping__content">
     <div class="shopping-list shopping-col">
       <ul class="shopping-list__group">
-        <a href="#" class="list__item" *ngFor="let ingredient of ingredients">
+        <a
+          href="#"
+          class="list__item"
+          *ngFor="let ingredient of ingredients; let i = index"
+          (click)="onEditItem(i)"
+        >
           <p>{{ ingredient.name }}</p>
           <p>{{ ingredient.amount }}</p>
         </a>
