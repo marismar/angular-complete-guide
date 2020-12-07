@@ -44,6 +44,7 @@
   text-decoration: none;
   padding: 2rem 3rem;
   transition: all 0.3s;
+  color: rgb(89, 29, 124);
 }
 
 .list__item:hover {

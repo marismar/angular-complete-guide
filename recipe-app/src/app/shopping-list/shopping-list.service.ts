@@ -24,9 +24,23 @@ export class ShoppingListService {
     return this.ingredients.slice();
   }
 
+  getIngredient(index: number): Ingredient {
+    return this.ingredients[index];
+  }
+
   addIngredients(ingredient: Ingredient): void {
     this.ingredients.push(ingredient);
     // this.ingredientAdded.emit(this.ingredients.slice());
+    this.ingredientAdded.next(this.ingredients.slice());
+  }
+
+  updateIngredients(index: number, newIngredient: Ingredient): void {
+    this.ingredients[index] = newIngredient;
+    this.ingredientAdded.next(this.ingredients.slice());
+  }
+
+  deleteIngredient(index: number): void {
+    this.ingredients.splice(index, 1);
     this.ingredientAdded.next(this.ingredients.slice());
   }
 }

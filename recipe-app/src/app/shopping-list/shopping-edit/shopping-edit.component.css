@@ -82,7 +82,7 @@ fieldset {
 button:disabled:hover {
   background-color: transparent;
   opacity: 0.5;
-  cursor: default;
+  cursor: not-allowed;
 }
 
 button:disabled .icon {

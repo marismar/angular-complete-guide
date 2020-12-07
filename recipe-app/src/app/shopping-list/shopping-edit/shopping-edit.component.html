@@ -2,7 +2,7 @@
   <form
     class="shopping-edit__form"
     style="position: relative"
-    (ngSubmit)="onAddItem(form)"
+    (ngSubmit)="onSubmit(form)"
     #form="ngForm"
   >
     <fieldset class="shopping-edit__options">
@@ -11,16 +11,29 @@
         type="submit"
         [disabled]="!form.valid"
       >
-        <svg class="icon icon-plus">
+        <svg class="icon icon-plus" *ngIf="editMode">
+          <use xlink:href="../../assets/sprite.svg#icon-repeat"></use>
+        </svg>
+        <svg class="icon icon-plus" *ngIf="!editMode">
           <use xlink:href="../../assets/sprite.svg#icon-plus"></use>
         </svg>
       </button>
-      <button class="shopping-list__btn btn-delete" type="button">
+      <button
+        class="shopping-list__btn btn-delete"
+        type="button"
+        (click)="onClear()"
+        [disabled]="!name.value && !amount.value"
+      >
         <svg class="icon icon-plus">
           <use xlink:href="../../assets/sprite.svg#icon-delete"></use>
         </svg>
       </button>
-      <button class="shopping-list__btn btn-clear" type="button">
+      <button
+        class="shopping-list__btn btn-clear"
+        type="button"
+        *ngIf="editMode"
+        (click)="onDelete()"
+      >
         <svg class="icon icon-plus">
           <use xlink:href="../../assets/sprite.svg#icon-trash"></use>
         </svg>
@@ -35,6 +48,7 @@
         name="name"
         ngModel
         required
+        #name="ngModel"
       />
     </fieldset>
     <fieldset style="position: absolute; top: 6.3rem; right: 0">
@@ -47,6 +61,7 @@
         ngModel
         required
         pattern="^[1-9]+[0-9]*$"
+        #amount="ngModel"
       />
     </fieldset>
   </form>
