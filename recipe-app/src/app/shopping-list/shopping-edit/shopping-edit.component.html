@@ -1,42 +1,52 @@
 <div class="shopping-edit__container">
-  <div class="shopping-edit__options">
-    <button
-      class="shopping-list__btn btn-add"
-      type="submit"
-      (click)="onAddItem()"
-    >
-      <svg class="icon icon-plus">
-        <use xlink:href="../../assets/sprite.svg#icon-plus"></use>
-      </svg>
-    </button>
-    <button class="shopping-list__btn btn-delete" type="button">
-      <svg class="icon icon-plus">
-        <use xlink:href="../../assets/sprite.svg#icon-delete"></use>
-      </svg>
-    </button>
-    <button class="shopping-list__btn btn-clear" type="button">
-      <svg class="icon icon-plus">
-        <use xlink:href="../../assets/sprite.svg#icon-trash"></use>
-      </svg>
-    </button>
-  </div>
-  <form class="shopping-edit__form">
+  <form
+    class="shopping-edit__form"
+    style="position: relative"
+    (ngSubmit)="onAddItem(form)"
+    #form="ngForm"
+  >
+    <fieldset class="shopping-edit__options">
+      <button
+        class="shopping-list__btn btn-add"
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        <svg class="icon icon-plus">
+          <use xlink:href="../../assets/sprite.svg#icon-plus"></use>
+        </svg>
+      </button>
+      <button class="shopping-list__btn btn-delete" type="button">
+        <svg class="icon icon-plus">
+          <use xlink:href="../../assets/sprite.svg#icon-delete"></use>
+        </svg>
+      </button>
+      <button class="shopping-list__btn btn-clear" type="button">
+        <svg class="icon icon-plus">
+          <use xlink:href="../../assets/sprite.svg#icon-trash"></use>
+        </svg>
+      </button>
+    </fieldset>
     <fieldset>
       <label for="name">Name</label>
       <input
         type="text"
         class="shopping-edit__input shopping-edit__input--name"
         id="name"
-        #nameInput
+        name="name"
+        ngModel
+        required
       />
     </fieldset>
-    <fieldset>
+    <fieldset style="position: absolute; top: 6.3rem; right: 0">
       <label for="amount">Amount</label>
       <input
         type="number"
         class="shopping-edit__input shopping-edit__input--amount"
         id="amount"
-        #amountInput
+        name="amount"
+        ngModel
+        required
+        pattern="^[1-9]+[0-9]*$"
       />
     </fieldset>
   </form>

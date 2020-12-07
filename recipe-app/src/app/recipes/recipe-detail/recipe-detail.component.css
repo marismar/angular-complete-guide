@@ -34,3 +34,37 @@
   fill: rgb(89, 29, 124);
   transition: all 0.3s;
 }
+
+.recipe-detail__main {
+  border-radius: 2rem;
+  border: 2px solid var(--color-grey-light-3);
+  box-shadow: 0.5rem 0 3rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.ingrediens-details > h4 {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-grey-light-3);
+}
+
+.ingrediens-details {
+  border: 2px solid var(--color-grey-light-3);
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.1);
+}
+
+/* .list-group__ingredients {
+  border: 2px solid var(--color-grey-light-3);
+  border-radius: 3rem;
+  padding: 1rem 3rem;
+}
+ */
+.list-item__ingredients {
+  padding: 1.5rem 0;
+  font-size: 1.6rem;
+}
+
+.list-item__ingredients:not(:last-child) {
+  border-bottom: 1px solid var(--color-grey-light-2);
+}

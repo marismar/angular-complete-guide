@@ -38,7 +38,12 @@
 
 .shopping-edit__form {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+.shopping-edit__data {
+  display: inline-block;
 }
 
 label {
@@ -71,4 +76,19 @@ fieldset {
 .shopping-edit__input:focus {
   outline: none;
   border: 2px solid var(--color-primary);
+  box-shadow: 0rem 0.5rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+button:disabled:hover {
+  background-color: transparent;
+  opacity: 0.5;
+  cursor: default;
+}
+
+button:disabled .icon {
+  fill: rgba(89, 29, 124, 0.5);
+}
+
+button:disabled:hover .icon {
+  fill: rgba(89, 29, 124, 1);
 }

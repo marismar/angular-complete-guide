@@ -23,43 +23,39 @@
       </button>
     </div>
   </div>
-  <img
-    [src]="recipe.imagePath"
-    alt="{{ recipe.name }}"
-    style="max-width: 100%; margin-bottom: 2rem; border-radius: 3rem"
-  />
-  <p
-    style="
-      text-align: justify;
-      color: var(--color-grey-dark-2);
-      margin-bottom: 2rem;
-      line-height: 1.5;
-      font-size: 1.6rem;
-    "
-  >
-    {{ recipe.description }}
-  </p>
-  <h4
-    style="
-      margin-bottom: 1rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--color-grey-light-3);
-    "
-  >
-    Ingredients
-  </h4>
-  <ul class="list-group__ingredients" style="list-style: none">
-    <li
-      style="padding: 0.8rem 0"
-      class="list-item__ingredients"
-      *ngFor="let ingredient of recipe.ingredients"
+  <div class="recipe-detail__main">
+    <img
+      [src]="recipe.imagePath"
+      alt="{{ recipe.name }}"
+      style="max-width: 100%; border-radius: 2.5rem 2.5rem 0 0"
+    />
+    <p
+      style="
+        text-align: justify;
+        color: var(--color-grey-dark-2);
+        line-height: 1.5;
+        font-size: 1.6rem;
+        padding: 3rem;
+      "
     >
-      <div style="width: 8%; display: inline-block">
-        {{ ingredient.amount }}
-      </div>
-      <p style="margin-left: 2rem; display: inline-block">
-        {{ ingredient.name }}
-      </p>
-    </li>
-  </ul>
+      {{ recipe.description }}
+    </p>
+  </div>
+
+  <div class="ingrediens-details">
+    <h4>Ingredients</h4>
+    <ul class="list-group__ingredients" style="list-style: none">
+      <li
+        class="list-item__ingredients"
+        *ngFor="let ingredient of recipe.ingredients"
+      >
+        <div style="width: 8%; display: inline-block">
+          {{ ingredient.amount }}
+        </div>
+        <p style="margin-left: 2rem; display: inline-block">
+          {{ ingredient.name }}
+        </p>
+      </li>
+    </ul>
+  </div>
 </div>
