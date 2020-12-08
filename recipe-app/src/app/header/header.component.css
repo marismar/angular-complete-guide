@@ -25,7 +25,6 @@
   height: 4rem;
 }
 
-.navbar__link,
 .navbar__link:link,
 .navbar__link:visited {
   margin-left: 3rem;
@@ -41,6 +40,7 @@
 
 .navbar__link:hover {
   /* letter-spacing: 1px; */
+  color: rgb(89, 29, 124) !important;
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
   border: 2px solid rgb(89, 29, 124);
 }

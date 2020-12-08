@@ -10,6 +10,7 @@ import { Recipe } from './recipes.model';
 export class RecipesService {
   // recipeSelected = new EventEmitter<Recipe>();
   // recipeSelected = new Subject<Recipe>();
+  recipesChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -62,5 +63,20 @@ export class RecipesService {
       this.shoppingListService.addIngredients(ingredient);
     }
     alert(`Ingredients added to the shopping list!`);
+  }
+
+  addRecipe(recipe: Recipe): void {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  update(index: number, newRecipe: Recipe): void {
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  deleteRecipe(index: number): void {
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
   }
 }

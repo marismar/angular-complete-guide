@@ -1,1 +1,127 @@
-<p>recipe-edit works!</p>
+<div class="recipe-edit__container">
+  <div class="recipe-edit__content">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="recipe-edit__header">
+        <h2>Edit</h2>
+        <div class="recipe-edit__options">
+          <button
+            type="submit"
+            class="recipe-edit__btn recipe-edit__btn--save"
+            [disabled]="!recipeForm.valid"
+          >
+            <svg class="icon icon-save">
+              <use xlink:href="../../assets/sprite.svg#icon-save"></use>
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="recipe-edit__btn recipe-edit__btn--cancel"
+            (click)="onCancel()"
+          >
+            <svg class="icon icon-cancel">
+              <use xlink:href="../../assets/sprite.svg#icon-log-out"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="recipe-edit__main">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          formControlName="name"
+          class="recipe-edit__input recipe-edit__input--name"
+          [ngStyle]="{
+            color: recipeForm.get('name').dirty
+              ? 'var(--color-grey-dark-1)'
+              : 'var(--color-grey-dark-2)'
+          }"
+        />
+        <label for="imagePath">Image URL</label>
+        <input
+          type="text"
+          name="imagePath"
+          id="imagePath"
+          formControlName="imagePath"
+          class="recipe-edit__input recipe-edit__input--image"
+          [ngStyle]="{
+            color: recipeForm.get('imagePath').dirty
+              ? 'var(--color-grey-dark-1)'
+              : 'var(--color-grey-dark-2)'
+          }"
+        />
+        <img [src]="recipeForm.value.imagePath" class="recipe-edit__image" />
+        <label for="description">Description</label>
+        <textarea
+          type="text"
+          name="description"
+          id="description"
+          formControlName="description"
+          class="recipe-edit__textarea recipe-edit__textarea--description"
+          rows="4"
+          [ngStyle]="{
+            color: recipeForm.get('description').dirty
+              ? 'var(--color-grey-dark-1)'
+              : 'var(--color-grey-dark-2)'
+          }"
+        ></textarea>
+      </div>
+      <div class="recipe-edit__ingredients" formArrayName="ingredients">
+        <div class="ingredients__title">
+          <h4>Ingredients</h4>
+          <button
+            type="button"
+            class="recipe-edit__btn ingredients__btn--add"
+            (click)="onAddIngredient()"
+          >
+            <svg class="icon icon-plus">
+              <use xlink:href="../../assets/sprite.svg#icon-plus"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div
+          class="ingredients__data"
+          *ngFor="let ingredientsCrtl of controls; let i = index"
+          [formGroupName]="i"
+        >
+          <input
+            type="text"
+            placeholder="name"
+            name="name"
+            class="ingredients__input--name ingredients__input"
+            formControlName="name"
+            [ngStyle]="{
+              color: ingredientsCrtl.get('name').dirty
+                ? 'var(--color-grey-dark-1)'
+                : 'var(--color-grey-dark-2)'
+            }"
+          />
+          <input
+            type="number"
+            placeholder="un"
+            name="amount"
+            class="ingredients__input--amount ingredients__input"
+            formControlName="amount"
+            [ngStyle]="{
+              color: ingredientsCrtl.get('amount').dirty
+                ? 'var(--color-grey-dark-1)'
+                : 'var(--color-grey-dark-2)'
+            }"
+          />
+          <button
+            type="button"
+            class="recipe-edit__btn ingredients__btn-delete"
+            (click)="onDeleteIngredient(i)"
+          >
+            <svg class="icon icon-crosshair">
+              <use xlink:href="../../assets/sprite.svg#icon-trash"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
