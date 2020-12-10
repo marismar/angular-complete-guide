@@ -1,8 +1,24 @@
 <div class="recipes-list__container">
   <div class="heading-box">
     <h2 class="section__title">Recipes</h2>
-    <!-- <button class="btn" [routerLink]="['new']" >&#43;</button> -->
-    <button class="btn" (click)="onNewRecipe()">&#43;</button>
+    <div class="recipes__options">
+      <button class="btn">
+        <svg class="icon icon-upload">
+          <use xlink:href="../../assets/sprite.svg#icon-upload-cloud"></use>
+        </svg>
+      </button>
+      <button class="btn">
+        <svg class="icon icon-download">
+          <use xlink:href="../../assets/sprite.svg#icon-download-cloud"></use>
+        </svg>
+      </button>
+      <!-- <button class="btn" [routerLink]="['new']" >&#43;</button> -->
+      <button class="btn" (click)="onNewRecipe()">
+        <svg class="icon icon-new">
+          <use xlink:href="../../assets/sprite.svg#icon-plus"></use>
+        </svg>
+      </button>
+    </div>
   </div>
   <app-recipe-item
     *ngFor="let recipe of recipes; let i = index"
