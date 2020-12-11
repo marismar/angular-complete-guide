@@ -1,0 +1,95 @@
+.auth-container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 22%);
+  width: 40%;
+}
+
+.auth-header {
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--color-grey-light-3);
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+
+.auth__input {
+  padding: 1.5rem 2rem;
+  font-size: 1.5rem;
+  font-family: inherit;
+  border: 2px solid var(--color-grey-light-3);
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: left;
+}
+
+.auth__input {
+  max-width: 100%;
+}
+
+.auth__input:focus {
+  outline: none;
+  border: 2px solid var(--color-primary);
+  box-shadow: 0rem 0.5rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+.auth__input {
+  text-align: justify;
+}
+
+.form__options {
+  text-align: right;
+}
+
+.btn {
+  border: none;
+  border-radius: 0.5rem;
+  margin-left: 1rem;
+  background-color: var(--color-primary-dark);
+  color: white;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  background-color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+
+.btn--switch {
+  width: 16rem;
+}
+
+.btn:focus {
+  outline: none;
+  transform: translateY(0);
+}
+
+.btn--signup {
+  padding: 1rem 1rem;
+  width: 8.5rem;
+  background-color: var(--color-primary);
+}
+
+.btn--signup:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn--signup:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}

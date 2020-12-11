@@ -10,4 +10,6 @@
 .container .content {
   display: flex;
   flex-direction: column;
+
+  position: relative;
 }
