@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Recipe } from './recipes.model';
@@ -10,9 +11,7 @@ import { Recipe } from './recipes.model';
 export class RecipesService {
   // recipeSelected = new EventEmitter<Recipe>();
   // recipeSelected = new Subject<Recipe>();
-  recipesChanged = new Subject<Recipe[]>();
-
-  private recipes: Recipe[] = [
+  /* private recipes: Recipe[] = [
     new Recipe(
       'Pizza',
       'A savory dish of Italian origin consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients.',
@@ -46,9 +45,17 @@ export class RecipesService {
         new Ingredient('Garlic', 5),
       ]
     ),
-  ];
+  ]; */
+
+  recipesChanged = new Subject<Recipe[]>();
+  private recipes: Recipe[] = [];
 
   constructor(private shoppingListService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]): void {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes(): Recipe[] {
     return this.recipes.slice(); // returns a copy of recipes

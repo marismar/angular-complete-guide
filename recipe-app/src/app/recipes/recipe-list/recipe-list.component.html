@@ -3,12 +3,12 @@
     <h2 class="section__title">Recipes</h2>
     <div class="recipes__options">
       <button class="btn">
-        <svg class="icon icon-upload">
+        <svg class="icon icon-upload" (click)="onSaveData()">
           <use xlink:href="../../assets/sprite.svg#icon-upload-cloud"></use>
         </svg>
       </button>
       <button class="btn">
-        <svg class="icon icon-download">
+        <svg class="icon icon-download" (click)="onFetchData()">
           <use xlink:href="../../assets/sprite.svg#icon-download-cloud"></use>
         </svg>
       </button>
