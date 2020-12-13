@@ -10,7 +10,6 @@ import { RecipesService } from '../recipes.service';
   styleUrls: ['./recipe-detail.component.css'],
 })
 export class RecipeDetailComponent implements OnInit {
-  /* @Input() recipe: Recipe; */
   recipe: Recipe;
   id: number;
 
@@ -33,7 +32,6 @@ export class RecipeDetailComponent implements OnInit {
 
   onEditRecipe(): void {
     this.router.navigate(['edit'], { relativeTo: this.route });
-    // his.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route });
   }
 
   onDeleteRecipe(): void {

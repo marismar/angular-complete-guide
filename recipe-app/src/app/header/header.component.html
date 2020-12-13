@@ -1,48 +1,45 @@
 <div class="header-content">
   <div class="logo-box">
     <img src="../../assets/images/logo.png" alt="logo" class="logo" />
-    <span class="heading-primary">RecipesApp</span>
+    <span class="heading-primary">Recipe Book</span>
   </div>
   <nav class="header__navbar">
-    <!-- Using event listener to change the selected page -->
-    <!-- <a
-      href="#"
-      class="navbar__link"
-      [ngClass]="{ 'navbar__link--active': page !== 'recipes' }"
-      (click)="onShoppingPage()"
-      >Shopping</a
-    >
-    <a
-      href="#"
-      class="navbar__link"
-      [ngClass]="{ 'navbar__link--active': page === 'recipes' }"
-      (click)="onRecipesPage()"
-    >
-      Recipes
-    </a> -->
-
-    <!-- Using routing to changes pages -->
-    <a
-      href="#"
-      class="navbar__link"
-      routerLink="/auth"
-      routerLinkActive="navbar__link--active"
-      >Authenticate</a
-    >
     <a
       href="#"
       class="navbar__link"
       routerLink="/shopping-list"
       routerLinkActive="navbar__link--active"
-      >Shopping</a
+      *ngIf="isAuthenticated"
     >
+      Shopping
+    </a>
     <a
       href="#"
       routerLink="/recipes"
       routerLinkActive="navbar__link--active"
       class="navbar__link"
+      *ngIf="isAuthenticated"
     >
       Recipes
     </a>
   </nav>
+  <a
+    href="#"
+    class="navbar__link"
+    routerLink="/auth"
+    routerLinkActive="navbar__link--active"
+    *ngIf="!isAuthenticated"
+  >
+    Access for free
+  </a>
+  <a
+    href="#"
+    routerLink="/auth"
+    class="navbar__link navbar__link--logout"
+    *ngIf="isAuthenticated"
+  >
+    <svg class="icon icon-cancel">
+      <use xlink:href="../../assets/sprite.svg#icon-log-out"></use>
+    </svg>
+  </a>
 </div>

@@ -46,12 +46,13 @@ label {
 }
 
 .form__options {
-  text-align: right;
+  text-align: center;
 }
 
 .btn {
   border: none;
   border-radius: 0.5rem;
+  margin-top: 1rem;
   margin-left: 1rem;
   background-color: var(--color-primary-dark);
   color: white;
@@ -60,13 +61,17 @@ label {
   font-size: 1.4rem;
   cursor: pointer;
   padding: 1rem 1.5rem;
-  transition: all 0.2s;
+  transition: all 0.4s;
 }
 
-.btn:hover {
-  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+.btn--signup:hover {
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
   background-color: var(--color-primary-light);
-  transform: translateY(-2px);
+  transform: translateY(-5px) scale(1.03);
+}
+
+.btn--switch:hover {
+  background-color: rgb(155, 32, 77);
 }
 
 .btn--switch {
@@ -75,21 +80,60 @@ label {
 
 .btn:focus {
   outline: none;
-  transform: translateY(0);
+  transform: translateY(0px);
 }
 
 .btn--signup {
   padding: 1rem 1rem;
   width: 8.5rem;
   background-color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
 .btn--signup:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: translateY(0px);
 }
 
 .btn--signup:disabled:hover {
   transform: none;
   box-shadow: none;
+}
+
+.form-switch {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.link__switch {
+  border: none;
+  background-color: transparent;
+  color: var(--color-grey-dark-3);
+  transition: all 0.4s;
+  padding-bottom: 0.5rem;
+}
+
+.link__switch:hover {
+  color: var(--color-primary-light);
+  border-bottom: 1px solid currentColor;
+  cursor: pointer;
+  font-size: 1.4rem;
+  text-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.5);
+}
+
+.link__switch:focus {
+  outline: none;
+}
+
+.error__message {
+  border-radius: 1rem;
+  padding: 1.2rem 2.5rem;
+  margin-bottom: 2rem;
+  background-color: #f8d7da;
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-align: center;
 }

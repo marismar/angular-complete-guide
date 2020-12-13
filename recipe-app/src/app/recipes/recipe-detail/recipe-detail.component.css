@@ -54,12 +54,6 @@
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.1);
 }
 
-/* .list-group__ingredients {
-  border: 2px solid var(--color-grey-light-3);
-  border-radius: 3rem;
-  padding: 1rem 3rem;
-}
- */
 .list-item__ingredients {
   padding: 1.5rem 0;
   font-size: 1.6rem;

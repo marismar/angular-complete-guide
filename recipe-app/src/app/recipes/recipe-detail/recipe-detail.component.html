@@ -3,14 +3,10 @@
     <h2 class="section__title">{{ recipe.name }}</h2>
     <div class="recipe-detail__options">
       <button class="btn" type="button" (click)="onAddToShopping()">
-        <!-- <svg class="icon icon-shopping-cart">
-          <use xlink:href="../../assets/sprite.svg#icon-shopping-cart"></use>
-        </svg> -->
         <svg class="icon icon-shopping-bag">
           <use xlink:href="../../assets/sprite.svg#icon-shopping-bag"></use>
         </svg>
       </button>
-      <!--  <button class="btn" [routerLink]="['/recipes', id, 'edit']"> -->
       <button class="btn" (click)="onEditRecipe()">
         <svg class="icon icon-trash">
           <use xlink:href="../../assets/sprite.svg#icon-edit"></use>

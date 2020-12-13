@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipe-app';
-  /*   page = 'recipes';
-
-  onSelectedPage(page: string): void {
-    this.page = page;
-  } */
 }

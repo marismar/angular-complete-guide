@@ -1,7 +1,13 @@
 <div class="auth-container">
-  <div class="auth-content">
+  <div *ngIf="isLoading" style="text-align: center; margin-top: 10rem">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <div class="auth-content" *ngIf="!isLoading">
     <div class="auth-header">
-      <h1>Authentication</h1>
+      <h1>Authenticate</h1>
+    </div>
+    <div class="error__message" *ngIf="error">
+      <p>{{ error }}</p>
     </div>
     <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
       <div class="form-group">
@@ -29,15 +35,21 @@
         />
       </div>
       <div class="form__options">
-        <button class="btn btn--switch" type="button" (click)="onSwitchMode()">
-          Switch to {{ !isLoginMode ? "login" : "sign up" }}
-        </button>
         <button
           class="btn btn--signup"
           type="submit"
           [disabled]="!authForm.valid"
         >
           {{ isLoginMode ? "Login" : "Sign up" }}
+        </button>
+      </div>
+      <div class="form-switch">
+        <button class="link__switch" type="button" (click)="onSwitchMode()">
+          {{
+            !isLoginMode
+              ? "If you already have an account, just login here!"
+              : "Don't have an account yet?  Sign up for free!"
+          }}
         </button>
       </div>
     </form>
