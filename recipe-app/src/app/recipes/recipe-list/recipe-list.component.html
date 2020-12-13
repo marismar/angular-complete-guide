@@ -19,6 +19,10 @@
       </button>
     </div>
   </div>
+  <app-loading-spinner
+    *ngIf="isLoading"
+    style="display: flex; justify-content: center; margin-top: 3rem"
+  ></app-loading-spinner>
   <app-recipe-item
     *ngFor="let recipe of recipes; let i = index"
     [recipe]="recipe"

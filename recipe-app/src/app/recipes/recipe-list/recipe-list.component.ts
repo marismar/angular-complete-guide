@@ -14,6 +14,7 @@ import { DataStorageService } from 'src/app/shared/data-storage.service';
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
   subscription: Subscription;
+  isLoading = false;
 
   constructor(
     private recipesService: RecipesService,
@@ -44,6 +45,10 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   }
 
   onFetchData(): void {
-    this.dataStorageService.fetchRecipes().subscribe();
+    this.isLoading = true;
+    this.dataStorageService.fetchRecipes().subscribe((response) => {
+      console.log(response);
+      this.isLoading = false;
+    });
   }
 }
