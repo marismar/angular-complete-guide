@@ -76,14 +76,13 @@ export class AuthService {
   ) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
-    console.log(user);
+    /* console.log(user); */
 
     this.user.next(user);
   }
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'An unknown error occured!';
-    console.log(error);
 
     if (!error.error || !error.error) {
       return throwError(errorMessage);

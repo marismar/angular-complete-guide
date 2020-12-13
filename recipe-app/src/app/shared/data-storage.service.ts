@@ -24,34 +24,27 @@ export class DataStorageService {
         recipes
       )
       .subscribe((response) => {
-        console.log(response);
         alert('The data was stored on the database!');
       });
   }
 
   fetchRecipes() {
-    return this.authService.user.pipe(
-      take(1),
-      exhaustMap((user) => {
-        console.log(user.token);
-        return this.http.get<Recipe[]>(
-          'https://recipe-app-9a8ef-default-rtdb.firebaseio.com/recipes.json',
-          {
-            params: new HttpParams().set('auth', user.token),
-          }
-        );
-      }),
-      map((recipes) => {
-        return recipes.map((recipe) => {
-          return {
-            ...recipe,
-            ingredients: recipe.ingredients ? recipe.ingredients : [],
-          };
-        });
-      }),
-      tap((recipes) => {
-        this.recipeService.setRecipes(recipes);
-      })
-    );
+    return this.http
+      .get<Recipe[]>(
+        'https://recipe-app-9a8ef-default-rtdb.firebaseio.com/recipes.json'
+      )
+      .pipe(
+        map((recipes) => {
+          return recipes.map((recipe) => {
+            return {
+              ...recipe,
+              ingredients: recipe.ingredients ? recipe.ingredients : [],
+            };
+          });
+        }),
+        tap((recipes) => {
+          this.recipeService.setRecipes(recipes);
+        })
+      );
   }
 }

@@ -6,21 +6,21 @@
   <nav class="header__navbar">
     <a
       href="#"
-      class="navbar__link"
-      routerLink="/shopping-list"
-      routerLinkActive="navbar__link--active"
-      *ngIf="isAuthenticated"
-    >
-      Shopping
-    </a>
-    <a
-      href="#"
       routerLink="/recipes"
       routerLinkActive="navbar__link--active"
       class="navbar__link"
       *ngIf="isAuthenticated"
     >
       Recipes
+    </a>
+    <a
+      href="#"
+      class="navbar__link"
+      routerLink="/shopping-list"
+      routerLinkActive="navbar__link--active"
+      *ngIf="isAuthenticated"
+    >
+      Shopping
     </a>
   </nav>
   <a

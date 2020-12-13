@@ -2,13 +2,13 @@
   <div class="heading-box">
     <h2 class="section__title">Recipes</h2>
     <div class="recipes__options">
-      <button class="btn">
-        <svg class="icon icon-upload" (click)="onSaveData()">
+      <button class="btn" (click)="onSaveData()">
+        <svg class="icon icon-upload">
           <use xlink:href="../../assets/sprite.svg#icon-upload-cloud"></use>
         </svg>
       </button>
-      <button class="btn">
-        <svg class="icon icon-download" (click)="onFetchData()">
+      <button class="btn" (click)="onFetchData()">
+        <svg class="icon icon-download">
           <use xlink:href="../../assets/sprite.svg#icon-download-cloud"></use>
         </svg>
       </button>

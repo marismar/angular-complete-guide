@@ -47,7 +47,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   onFetchData(): void {
     this.isLoading = true;
     this.dataStorageService.fetchRecipes().subscribe((response) => {
-      console.log(response);
+      /* console.log(response); */
       this.isLoading = false;
     });
   }
