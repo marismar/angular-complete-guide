@@ -33,10 +33,9 @@
     Access for free
   </a>
   <a
-    href="#"
-    routerLink="/auth"
     class="navbar__link navbar__link--logout"
     *ngIf="isAuthenticated"
+    (click)="onLogout()"
   >
     <svg class="icon icon-cancel">
       <use xlink:href="../../assets/sprite.svg#icon-log-out"></use>

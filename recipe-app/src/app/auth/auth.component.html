@@ -4,7 +4,9 @@
   </div>
   <div class="auth-content" *ngIf="!isLoading">
     <div class="auth-header">
-      <h1>Authentication</h1>
+      <h1>
+        {{ isLoginMode ? "Welcome back :)" : "Create account" }}
+      </h1>
     </div>
     <div class="error__message" *ngIf="error">
       <p>{{ error }}</p>
