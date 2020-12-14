@@ -11,7 +11,11 @@
     <div class="error__message" *ngIf="error">
       <p>{{ error }}</p>
     </div>
-    <app-alert [message]="error" *ngIf="error"></app-alert>
+    <app-alert
+      [message]="error"
+      *ngIf="error"
+      (close)="onHandleError()"
+    ></app-alert>
     <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
       <div class="form-group">
         <label for="email">Email</label>
