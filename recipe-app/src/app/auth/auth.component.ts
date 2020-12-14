@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { PlaceholderDirective } from '../shared/alert/placeholder/placeholder.directive';
 import { AuthService } from './auth.service';
 
 interface AuthResponse {
@@ -20,11 +27,18 @@ interface AuthResponse {
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
+  @ViewChild(PlaceholderDirective, { static: false })
+  alertHost: PlaceholderDirective;
+
   isLoginMode = true;
   isLoading = false;
   error: string = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {}
 
   ngOnInit(): void {}
 
@@ -58,6 +72,7 @@ export class AuthComponent implements OnInit {
       (error) => {
         console.log(error);
         this.error = error;
+        this.showErrorAlert(error);
         this.isLoading = false;
       }
     );
@@ -67,5 +82,17 @@ export class AuthComponent implements OnInit {
 
   onHandleError() {
     this.error = null;
+  }
+
+  private showErrorAlert(message: string) {
+    // const alertComp = new AlertComponent();
+    /* const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
+      AlertComponent
+    );
+
+    const hostViewContainerRef = this.alertHost.viewContainerRef;
+    hostViewContainerRef.clear();
+
+    hostViewContainerRef.createComponent(alertCmpFactory); */
   }
 }
