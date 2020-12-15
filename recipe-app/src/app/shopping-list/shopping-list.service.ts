@@ -19,6 +19,8 @@ export class ShoppingListService {
 
   getIngredients(): Ingredient[] {
     // It's possible to use only this, instead event binding
+    this.ingredients = JSON.parse(localStorage.getItem('ingredients'));
+
     // return this.ingredients;
     return this.ingredients.slice();
   }
@@ -30,15 +32,21 @@ export class ShoppingListService {
   addIngredients(ingredient: Ingredient): void {
     this.ingredients.push(ingredient);
     this.ingredientAdded.next(this.ingredients.slice());
+
+    localStorage.setItem('ingredients', JSON.stringify(this.ingredients));
   }
 
   updateIngredients(index: number, newIngredient: Ingredient): void {
     this.ingredients[index] = newIngredient;
     this.ingredientAdded.next(this.ingredients.slice());
+
+    localStorage.setItem('ingredients', JSON.stringify(this.ingredients));
   }
 
   deleteIngredient(index: number): void {
     this.ingredients.splice(index, 1);
     this.ingredientAdded.next(this.ingredients.slice());
+
+    localStorage.setItem('ingredients', JSON.stringify(this.ingredients));
   }
 }

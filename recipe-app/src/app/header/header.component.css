@@ -30,9 +30,11 @@
   display: flex;
 }
 
+.navbar__link,
 .navbar__link:link,
 .navbar__link:visited,
 .navbar__link--logout {
+  color: rgb(89, 29, 124);
   margin-left: 1.5rem;
   font-weight: 600;
   font-size: 1.5rem;
@@ -43,7 +45,9 @@
   letter-spacing: 1px;
 }
 
-.navbar__link--active {
+.navbar__link--active,
+.navbar__link--active:link,
+.navbar__link--active:visited {
   color: rgb(89, 29, 124) !important;
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
   border: 2px solid rgb(89, 29, 124);

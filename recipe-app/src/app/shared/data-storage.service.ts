@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { exhaustMap, map, take, tap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 
@@ -28,7 +29,7 @@ export class DataStorageService {
       });
   }
 
-  fetchRecipes() {
+  fetchRecipes(): Observable<any> {
     return this.http
       .get<Recipe[]>(
         'https://recipe-app-9a8ef-default-rtdb.firebaseio.com/recipes.json'
