@@ -45,11 +45,11 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {}
 
-  onSwitchMode() {
+  onSwitchMode(): void {
     this.isLoginMode = !this.isLoginMode;
   }
 
-  onSubmit(form: NgForm) {
+  onSubmit(form: NgForm): void {
     if (!form.valid) {
       return;
     }
@@ -83,11 +83,11 @@ export class AuthComponent implements OnInit, OnDestroy {
     form.reset();
   }
 
-  onHandleError() {
+  onHandleError(): void {
     this.error = null;
   }
 
-  private showErrorAlert(message: string) {
+  private showErrorAlert(message: string): void {
     const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
       AlertComponent
     );

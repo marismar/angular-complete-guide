@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+
 import { User } from './user.model';
 
 interface AuthResponse {
@@ -27,10 +29,10 @@ export class AuthService {
   signup(email: string, password: string): Observable<AuthResponse> {
     return this.http
       .post<AuthResponse>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCVsAOzQMXT8PA__fuvfrPegIaRUU8CWZQ',
+        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseAPIKey}`,
         {
-          email: email,
-          password: password,
+          email,
+          password,
           returnSecureToken: true,
         }
       )
@@ -50,10 +52,10 @@ export class AuthService {
   login(email: string, password: string): Observable<AuthResponse> {
     return this.http
       .post<AuthResponse>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCVsAOzQMXT8PA__fuvfrPegIaRUU8CWZQ',
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseAPIKey}`,
         {
-          email: email,
-          password: password,
+          email,
+          password,
           returnSecureToken: true,
         }
       )
@@ -70,7 +72,7 @@ export class AuthService {
       );
   }
 
-  logout() {
+  logout(): void {
     this.user.next(null);
     this.router.navigate(['/auth']);
     localStorage.removeItem('userData');
@@ -80,7 +82,7 @@ export class AuthService {
     this.tokenExpirationTimer = null;
   }
 
-  autoLogin() {
+  autoLogin(): ConstrainVideoFacingModeParameters {
     const userData: {
       email: string;
       id: string;
@@ -107,7 +109,7 @@ export class AuthService {
     }
   }
 
-  autoLogout(expirationDuration: number) {
+  autoLogout(expirationDuration: number): void {
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, expirationDuration);
@@ -118,7 +120,7 @@ export class AuthService {
     userId: string,
     token: string,
     expiresIn: number
-  ) {
+  ): void {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
     /* console.log(user); */
@@ -128,7 +130,7 @@ export class AuthService {
     localStorage.setItem('userData', JSON.stringify(user));
   }
 
-  private handleError(error: HttpErrorResponse) {
+  private handleError(error: HttpErrorResponse): Observable<any> {
     let errorMessage = 'An unknown error occured!';
 
     if (!error.error || !error.error) {
