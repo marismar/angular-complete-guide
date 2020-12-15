@@ -1,3 +1,10 @@
+.container-protected {
+  width: 100%;
+  flex: 1;
+
+  position: relative;
+}
+
 .auth-container {
   position: absolute;
   left: 50%;

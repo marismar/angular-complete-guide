@@ -1,65 +1,68 @@
 <ng-template appPlaceholder></ng-template>
-<div class="auth-container">
-  <div *ngIf="isLoading" style="text-align: center; margin-top: 10rem">
-    <app-loading-spinner></app-loading-spinner>
-  </div>
-  <div class="auth-content" *ngIf="!isLoading">
-    <div class="auth-header">
-      <h1>
-        {{ isLoginMode ? "Welcome back :)" : "Create account" }}
-      </h1>
+<app-alert
+  [message]="error"
+  *ngIf="error"
+  (close)="onHandleError()"
+></app-alert>
+
+<div class="container-protected">
+  <div class="auth-container">
+    <div *ngIf="isLoading" style="text-align: center; margin-top: 10rem">
+      <app-loading-spinner></app-loading-spinner>
     </div>
-    <div class="error__message" *ngIf="error">
-      <p>{{ error }}</p>
+    <div class="auth-content" *ngIf="!isLoading">
+      <div class="auth-header">
+        <h1>
+          {{ isLoginMode ? "Welcome back :)" : "Create account" }}
+        </h1>
+      </div>
+      <div class="error__message" *ngIf="error">
+        <p>{{ error }}</p>
+      </div>
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            ngModel
+            name="email"
+            id="email"
+            required
+            email
+            class="form-control auth__input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            ngModel
+            required
+            minlength="6"
+            class="form-control auth__input"
+          />
+        </div>
+        <div class="form__options">
+          <button
+            class="btn btn--signup"
+            type="submit"
+            [disabled]="!authForm.valid"
+          >
+            {{ isLoginMode ? "Login" : "Sign up" }}
+          </button>
+        </div>
+        <div class="form-switch">
+          <button class="link__switch" type="button" (click)="onSwitchMode()">
+            {{
+              !isLoginMode
+                ? "If you already have an account, just login here!"
+                : "Don't have an account yet?  Sign up for free!"
+            }}
+          </button>
+        </div>
+      </form>
     </div>
-    <app-alert
-      [message]="error"
-      *ngIf="error"
-      (close)="onHandleError()"
-    ></app-alert>
-    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          ngModel
-          name="email"
-          id="email"
-          required
-          email
-          class="form-control auth__input"
-        />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          ngModel
-          required
-          minlength="6"
-          class="form-control auth__input"
-        />
-      </div>
-      <div class="form__options">
-        <button
-          class="btn btn--signup"
-          type="submit"
-          [disabled]="!authForm.valid"
-        >
-          {{ isLoginMode ? "Login" : "Sign up" }}
-        </button>
-      </div>
-      <div class="form-switch">
-        <button class="link__switch" type="button" (click)="onSwitchMode()">
-          {{
-            !isLoginMode
-              ? "If you already have an account, just login here!"
-              : "Don't have an account yet?  Sign up for free!"
-          }}
-        </button>
-      </div>
-    </form>
   </div>
 </div>

@@ -1,3 +1,7 @@
+.container-protected {
+  width: 100%;
+}
+
 .recipes__container {
   display: flex;
   align-items: flex-start;

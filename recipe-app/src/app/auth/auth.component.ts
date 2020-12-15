@@ -8,7 +8,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AlertComponent } from '../shared/alert/alert.component';
-import { PlaceholderDirective } from '../shared/alert/placeholder/placeholder.directive';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
+
 import { AuthService } from './auth.service';
 
 interface AuthResponse {
